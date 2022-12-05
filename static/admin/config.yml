@@ -4,7 +4,7 @@ backend:
   branch: main
   base_url: https://vercel-learn-navy.vercel.app
   auth_endpoint: api/begin
-  auth_scope: repo,read,write # this is needed to fork the private repo
+  auth_scope: repo # this is needed to fork the private repo
   open_authoring: true
   cms_label_prefix: content/
 
