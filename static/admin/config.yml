@@ -2,7 +2,7 @@ backend:
   name: github
   repo: michio-rework/my-docs
   branch: main
-  base_url: http://vercel-learn-navy.vercel.app
+  base_url: https://vercel-learn-navy.vercel.app
   auth_endpoint: api/begin
   auth_scope: repo # this is needed to fork the private repo
   open_authoring: true
