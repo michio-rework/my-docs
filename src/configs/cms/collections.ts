@@ -8,7 +8,7 @@ const blog_post_collection: CmsCollection = {
   folder: "blog",
   identifier_field: "title",
   extension: "md",
-  publish: true,
+  publish: false,
   slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
   fields: [
     {
