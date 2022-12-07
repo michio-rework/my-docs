@@ -31,6 +31,7 @@ const CMS = () => {
   return (
     <BrowserOnly>
       {() => {
+        // HINT: netlify-cms will be rendered inside this div
         return <div id="nc-root" />;
       }}
     </BrowserOnly>
