@@ -1,7 +1,8 @@
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 import React, { useEffect } from "react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
-import CmsConfig from "../configs/cms.config";
+import CmsConfig from "../configs/cms";
+import { InitOptions } from "netlify-cms-core";
 
 const CMS = () => {
   useEffect(() => {
@@ -16,7 +17,14 @@ const CMS = () => {
             return entry.get("data").set("author", author);
           },
         });
-        CMS.init(CmsConfig);
+        const init_options: InitOptions = { ...CmsConfig };
+
+        // HINT: to test the collections setup we use the test-repo, nothing will be pushed to github and if you refresh the page
+        // all the changes and added items will be removed.
+        if (process.env.NODE_ENV === "development") {
+          init_options.config.backend.name = "test-repo";
+        }
+        CMS.init(init_options);
       });
     }
   });
