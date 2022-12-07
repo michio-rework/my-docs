@@ -1,0 +1,12 @@
+---
+title: author new
+slug: author
+tags:
+  - author
+author:
+  name: Michio
+  title: Michio
+  url: https://github.com/michio-rework
+  image_url: https://avatars.githubusercontent.com/u/101641055?v=4
+---
+a﻿uthors
