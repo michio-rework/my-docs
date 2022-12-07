@@ -14,11 +14,13 @@ const CMS = () => {
             const github_user = JSON.parse(
               localStorage.getItem("netlify-cms-user")
             );
+            const github_username =
+              github_user?.name ?? github_user?.login ?? "Deriv User";
             const author = [
               ...(entry.get("data")?.authors ?? []),
               {
-                name: github_user?.name,
-                title: github_user?.name,
+                name: github_username,
+                title: "Front-End Developer",
                 url: github_user?.html_url,
                 image_url: github_user?.avatar_url,
               },
