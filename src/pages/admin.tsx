@@ -14,13 +14,16 @@ const CMS = () => {
             const github_user = JSON.parse(
               localStorage.getItem("netlify-cms-user")
             );
-            const author = {
-              name: github_user?.name,
-              title: github_user?.name,
-              url: github_user?.html_url,
-              image_url: github_user?.avatar_url,
-            };
-            return entry.get("data").set("author", author);
+            const author = [
+              ...(entry.get("data")?.authors ?? []),
+              {
+                name: github_user?.name,
+                title: github_user?.name,
+                url: github_user?.html_url,
+                image_url: github_user?.avatar_url,
+              },
+            ];
+            return entry.get("data").set("authors", author);
           },
         });
         const init_options: InitOptions = { ...CmsConfig };
