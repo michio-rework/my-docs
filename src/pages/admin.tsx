@@ -11,9 +11,15 @@ const CMS = () => {
         CMS.registerEventListener({
           name: "preSave",
           handler: ({ entry }) => {
-            const author = JSON.parse(
+            const github_user = JSON.parse(
               localStorage.getItem("netlify-cms-user")
-            ).name;
+            );
+            const author = {
+              name: github_user?.name,
+              title: github_user?.name,
+              url: github_user?.html_url,
+              image_url: github_user?.avatar_url,
+            };
             return entry.get("data").set("author", author);
           },
         });
@@ -31,6 +37,7 @@ const CMS = () => {
   return (
     <BrowserOnly>
       {() => {
+        // HINT: netlify-cms will be rendered inside this div
         return <div id="nc-root" />;
       }}
     </BrowserOnly>
