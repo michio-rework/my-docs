@@ -6,8 +6,17 @@ import CmsConfig from "../configs/cms.config";
 const CMS = () => {
   useEffect(() => {
     if (ExecutionEnvironment.canUseDOM) {
-      import("netlify-cms-app").then((cms) => {
-        cms.default.init(CmsConfig);
+      import("netlify-cms-app").then(({ default: CMS }) => {
+        CMS.registerEventListener({
+          name: "preSave",
+          handler: ({ entry }) => {
+            const author = JSON.parse(
+              localStorage.getItem("netlify-cms-user")
+            ).name;
+            return entry.get("data").set("author", author);
+          },
+        });
+        CMS.init(CmsConfig);
       });
     }
   });

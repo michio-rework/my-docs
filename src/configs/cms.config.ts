@@ -33,6 +33,17 @@ const CmsConfig: InitOptions = {
           { name: "body", label: "Body", widget: "markdown" },
           { name: "slug", label: "Slug", widget: "string" },
           { name: "tags", label: "Tags", widget: "list" },
+          {
+            name: "authors",
+            label: "Authors",
+            widget: "hidden",
+            fields: [
+              { name: "name", label: "Name", widget: "string" },
+              { name: "title", label: "Title", widget: "string" },
+              { name: "url", label: "URL", widget: "string" },
+              { name: "image_url", label: "ImageURL", widget: "string" },
+            ],
+          },
         ],
       },
     ],
