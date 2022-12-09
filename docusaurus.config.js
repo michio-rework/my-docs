@@ -28,7 +28,6 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-
   presets: [
     [
       "classic",
@@ -36,17 +35,9 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -54,10 +45,17 @@ const config = {
       }),
     ],
   ],
-
+  plugins: ["@docusaurus/theme-live-codeblock"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      liveCodeBlock: {
+        /**
+         * The position of the live playground, above or under the editor
+         * Possible values: "top" | "bottom"
+         */
+        playgroundPosition: "bottom",
+      },
       navbar: {
         title: "My Site",
         logo: {
@@ -69,11 +67,13 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Tutorial",
+            label: "Documentations",
           },
           { to: "/blog", label: "Blog", position: "left" },
+          { to: "/admin/", label: "App Registration", position: "left" },
+
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/binary-com/deriv-api-docs",
             label: "GitHub",
             position: "right",
           },
